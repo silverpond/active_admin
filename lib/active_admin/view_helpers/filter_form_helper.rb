@@ -65,6 +65,14 @@ module ActiveAdmin
       ].join("\n").html_safe
     end
 
+    def filter_boolean_input(method, options = {})
+      field_name = "#{method}_is_true"
+
+      [ label(field_name, "Search #{method.to_s.titlecase}"),
+        check_box(field_name)
+      ].join("\n").html_safe
+    end
+
     def filter_date_range_input(method, options = {})
       gt_field_name = "#{method}_gte"
       lt_field_name = "#{method}_lte"
